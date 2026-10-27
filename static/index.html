@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GéoHôtels Maroc</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- PAGE ACCUEIL -->
+<div id="page-accueil">
+
+    <!-- NAVBAR -->
+    <nav class="navbar-home">
+        <div class="nav-logo">
+            <span class="logo-icon">🏨</span>
+            <span class="logo-text">GéoHôtels Maroc</span>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Trouvez les meilleurs hôtels près de vous</h1>
+            <p class="hero-subtitle">Choisissez votre ville et quartier — on trouve les hôtels autour de vous</p>
+
+            <!-- FORMULAIRE RECHERCHE -->
+            <div class="search-box">
+                <div class="search-field">
+                    <label>🏙️ Ville</label>
+                  <select id="ville-home" onchange="chargerAdresses('ville-home', 'adresse-home')" oninput="chargerAdresses('ville-home', 'adresse-home')">                        <option value="">-- Choisir une ville --</option>
+                        <option value="">-- Choisir une ville --</option>
+<option value="Casablanca">Casablanca</option>
+<option value="Rabat">Rabat</option>
+<option value="Fes">Fès</option>
+<option value="Marrakech">Marrakech</option>
+<option value="Tanger">Tanger</option>
+<option value="Agadir">Agadir</option>
+<option value="Meknes">Meknès</option>
+<option value="Oujda">Oujda</option>
+<option value="Kenitra">Kenitra</option>
+<option value="Tetouan">Tétouan</option>
+<option value="Essaouira">Essaouira</option>
+<option value="Ouarzazate">Ouarzazate</option>
+<option value="Chefchaouen">Chefchaouen</option>
+<option value="El Jadida">El Jadida</option>
+<option value="Beni Mellal">Beni Mellal</option>
+<option value="Nador">Nador</option>
+<option value="Safi">Safi</option>
+<option value="Errachidia">Errachidia</option>
+<option value="Dakhla">Dakhla</option>
+<option value="Laayoune">Laayoune</option>
+                    </select>
+                </div>
+                <div class="search-divider"></div>
+                <div class="search-field">
+                    <label>📍 Quartier</label>
+                    <select id="adresse-home">
+                        <option value="">-- Choisir d'abord une ville --</option>
+                    </select>
+                </div>
+                <div class="search-divider"></div>
+                <div class="search-field">
+                    <label>📏 Rayon</label>
+                    <select id="rayon-home">
+                        <option value="1">1 km</option>
+                        <option value="2">2 km</option>
+                        <option value="3" selected>3 km</option>
+                        <option value="5">5 km</option>
+                        <option value="10">10 km</option>
+                    </select>
+                </div>
+                <button class="search-btn-home" onclick="lancerRecherche()">
+                    🔍 Rechercher
+                </button>
+            </div>
+
+            <!-- VILLES POPULAIRES -->
+            <div class="popular-cities">
+                <span class="popular-label">Villes populaires :</span>
+                <button class="city-chip" onclick="selectionnerVille('Casablanca')">Casablanca</button>
+                <button class="city-chip" onclick="selectionnerVille('Marrakech')">Marrakech</button>
+                <button class="city-chip" onclick="selectionnerVille('Fès')">Fès</button>
+                <button class="city-chip" onclick="selectionnerVille('Tanger')">Tanger</button>
+                <button class="city-chip" onclick="selectionnerVille('Agadir')">Agadir</button>
+            </div>
+
+            <!-- MA POSITION -->
+            <button class="gps-btn" onclick="maPositionGPS()">
+                📍 Utiliser ma position GPS
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE RESULTATS -->
+<div id="page-resultats" style="display:none;">
+
+    <!-- NAVBAR RESULTATS -->
+    <div class="navbar-results">
+        <button class="back-btn" onclick="retourAccueil()">← Retour</button>
+        <span class="logo-text">🏨 GéoHôtels Maroc</span>
+        <div class="search-mini">
+            <span id="search-info"></span>
+        </div>
+    </div>
+
+    <!-- CARTE -->
+    <div id="map"></div>
+
+    <!-- PANNEAU RESULTATS EN BAS -->
+    <div class="results-panel">
+        <div class="results-header">
+            <span id="nb-resultats" class="results-count"></span>
+            <span id="statut" class="statut-text"></span>
+        </div>
+        <div id="liste-hotels" class="hotels-list"></div>
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
